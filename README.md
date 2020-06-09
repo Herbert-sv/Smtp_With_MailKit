@@ -1,2 +1,2 @@
 #OutLookSmtp Protocol using #MailKit for more information see 
-jstedfast/MailKit
+https://github.com/jstedfast/MailKit
