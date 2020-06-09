@@ -1,0 +1,50 @@
+﻿@*@model ExampleEmailSender.Models.EmailConfig*@
+@{
+    ViewData["Title"] = "Outlook Smtp Email Sender-MailKit";
+}
+
+<head>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Asap" rel="stylesheet">
+   
+
+    <style>
+        h2, p {
+            font-family: Asap,sans-serif;
+            font-size: 24px;
+        }
+        #Text{
+            text-align:center;
+        }
+    </style>
+</head>
+<br />
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel-default">
+                <div class="panel-heading">
+                    <p>Register Your OutLook email Address and Password !</p>
+                    <div class="body-content">
+                        <br />
+                        <br />
+                        <form asp-action="MainPage" asp-controller="Home" method="post" >
+                        <input id="Text" placeholder="My Name" name="UserName" class="form-control" autofocus/>
+                        <input id="Text" placeholder="EmailAddress" name="UserId" class="form-control" />
+                        <input id="Text" type="password" placeholder="Type Password" name="UserPassword" class="form-control" />
+                            <br/>
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                        </form>
+                        <div class="panel-footer">
+                            <br />
+                            <br />
+                            <p class="text-danger">@ViewBag.EmailSettings</p> <!--Error messag--->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

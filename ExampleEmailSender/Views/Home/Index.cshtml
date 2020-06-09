@@ -1,0 +1,76 @@
+﻿@model ExampleEmailSender.Models.EmailConfig
+@{
+    ViewData["Title"] = "Outlook Smtp Email Sender-MailKit";
+
+}
+
+
+<p><br /></p>
+<h3 class="text-primary"> Welcome @ViewData["UserName"]  @DateTime.Now </h3>
+<br />
+<br />
+<div class="container">
+@using (Html.BeginForm("Indexx", "Home", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-4">
+                @Html.LabelFor(Model => Model.From, "From:")<a asp-action="MainPage" asp-controller="Home" style="color:red;text-decoration-line:none" title="Like to edit ?"><span class="glyphicon glyphicon-edit"></span></a>
+                <input type="text" name="From" value="@ViewData["UserId"]" class="form-control" readonly />
+                <input type="Password" name="Password" value="@ViewData["Password"]" class="form-control" readonly />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                <p>@Html.LabelFor(Model => Model.To, "EmailAddress /To:")</p>
+                <p>@Html.TextBoxFor(Model => Model.To, new { @class = "form-control", autofocus = "autofocus" })</p>
+                <span>@Html.ValidationMessageFor(Model => Model.To)</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <p>@Html.LabelFor(Model => Model.Subject, "Subject:")</p>
+                <p>@Html.TextBoxFor(Model => Model.Subject, new { @class = "form-control" })</p>
+                <span>@Html.ValidationMessageFor(Model => Model.Subject)</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <p>@Html.LabelFor(Model => Model.Body, "Text:")</p>
+                <p>@Html.TextAreaFor(Model => Model.Body, 5, 100, new { @class = "form-horizontal" })</p>
+                <span>@Html.ValidationMessageFor(Model => Model.Body)</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary">Button</button>
+            <br />
+            <p class="text-success">@ViewBag.successful</p>
+            <p class="text-danger">@ViewBag.Error</p>
+        </div>
+    </div>
+}
+     
+ <div>
+      <button class="btn btn-danger" style="width:700px" id="ClearBtn">Clear</button>
+  </div>
+ </div>
+     
+
+<script>
+    $('#ClearBtn').click(function () {
+        $('input:text').val(" ");
+        $('textarea').val(" ");
+
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
